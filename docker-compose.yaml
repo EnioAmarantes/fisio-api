@@ -1,0 +1,23 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: fisio_db
+      MYSQL_USER: fisio_user
+      MYSQL_PASSWORD: fisio_password
+    ports:
+      - "3308:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - fisio_network
+    
+volumes:
+  mariadb_data:
+
+networks:
+  fisio_network:
+    driver: bridge
