@@ -1,0 +1,83 @@
+## Compilação e arquivos binários
+bin/
+obj/
+out/
+
+## Arquivos de publicação
+publish/
+*.publish.xml
+
+## Configurações do usuário
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Arquivos de log
+*.log
+
+## Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+
+## Diretórios do VS Code e IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+## Arquivos do Rider
+*.sln.iml
+
+## Configurações de build local
+*.dbmdl
+*.dbproj.schemaview
+*.pdb
+*.mdb
+
+## Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+## Testes e cobertura
+TestResults/
+*.coverage
+*.coveragexml
+*.testsettings
+*.vsmdi
+*.vsp
+*.vspx
+*.trx
+
+## Pacotes
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+## Arquivos gerados pelo dotnet
+Generated_Code/
+
+## Arquivos do Visual Studio
+.vs/
+
+## Configurações de ambiente e secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+## Arquivos de backup de merge
+*.merge_backup.*
+
+## Ambiente Docker local
+docker-compose.override.yml
+.env
+
+## Arquivos específicos de Linux/macOS
+*.swp
+*.swo
+*~
