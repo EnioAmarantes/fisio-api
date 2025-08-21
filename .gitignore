@@ -1,3 +1,7 @@
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
 ## Compilação e arquivos binários
 bin/
 obj/
