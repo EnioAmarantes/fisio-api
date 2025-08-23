@@ -1,6 +1,44 @@
+
 @fisio_api_HostAddress = http://localhost:5056
 
-GET {{fisio_api_HostAddress}}/weatherforecast/
+# Listar todos os clientes
+GET {{fisio_api_HostAddress}}/api/customer
+Accept: application/json
+
+###
+# Buscar cliente por código
+GET {{fisio_api_HostAddress}}/api/customer/{{code}}
+Accept: application/json
+
+###
+# Adicionar novo cliente
+POST {{fisio_api_HostAddress}}/api/customer
+Content-Type: application/json
+Accept: application/json
+
+{
+	"name": "Nome do Cliente",
+	"email": "cliente@email.com",
+	"phone": "11999999999"
+	// ... outros campos conforme CustomerRequest
+}
+
+###
+# Atualizar cliente existente
+PUT {{fisio_api_HostAddress}}/api/customer/{{code}}
+Content-Type: application/json
+Accept: application/json
+
+{
+	"name": "Nome Atualizado",
+	"email": "novo@email.com",
+	"phone": "11888888888"
+	// ... outros campos conforme CustomerRequest
+}
+
+###
+# Remover cliente
+DELETE {{fisio_api_HostAddress}}/api/customer/{{code}}
 Accept: application/json
 
 ###
