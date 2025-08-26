@@ -1,3 +1,4 @@
+using Domain.Enums;
 namespace Domain;
 
 public class HealthInfo
@@ -21,32 +22,20 @@ public class HealthInfo
     }
 }
 
-public enum EBlood
-{
-    A_POSITIVE = 1,
-    A_NEGATIVE = 2,
-    B_POSITIVE = 3,
-    B_NEGATIVE = 4,
-    AB_POSITIVE = 5,
-    AB_NEGATIVE = 6,
-    O_POSITIVE = 7,
-    O_NEGATIVE = 8
-}
-
 public static class EBloodExtensions
 {
     public static string ToBloodString(this EBlood blood)
     {
         return blood switch
         {
-            EBlood.A_POSITIVE => "A+",
-            EBlood.A_NEGATIVE => "A-",
-            EBlood.B_POSITIVE => "B+",
-            EBlood.B_NEGATIVE => "B-",
-            EBlood.AB_POSITIVE => "AB+",
-            EBlood.AB_NEGATIVE => "AB-",
-            EBlood.O_POSITIVE => "O+",
-            EBlood.O_NEGATIVE => "O-",
+            EBlood.APositive => "A+",
+            EBlood.ANegative => "A-",
+            EBlood.BPositive => "B+",
+            EBlood.BNegative => "B-",
+            EBlood.ABPositive => "AB+",
+            EBlood.ABNegative => "AB-",
+            EBlood.OPositive => "O+",
+            EBlood.ONegative => "O-",
             _ => "Unknown"
         };
     }
@@ -55,14 +44,14 @@ public static class EBloodExtensions
     {
         return bloodString switch
         {
-            "A+" => EBlood.A_POSITIVE,
-            "A-" => EBlood.A_NEGATIVE,
-            "B+" => EBlood.B_POSITIVE,
-            "B-" => EBlood.B_NEGATIVE,
-            "AB+" => EBlood.AB_POSITIVE,
-            "AB-" => EBlood.AB_NEGATIVE,
-            "O+" => EBlood.O_POSITIVE,
-            "O-" => EBlood.O_NEGATIVE,
+            "A+" => EBlood.APositive,
+            "A-" => EBlood.ANegative,
+            "B+" => EBlood.BPositive,
+            "B-" => EBlood.BNegative,
+            "AB+" => EBlood.ABPositive,
+            "AB-" => EBlood.ABNegative,
+            "O+" => EBlood.OPositive,
+            "O-" => EBlood.ONegative,
             _ => throw new ArgumentException("Invalid blood type string.", nameof(bloodString))
         };
     }

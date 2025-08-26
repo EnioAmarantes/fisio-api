@@ -19,7 +19,7 @@ public class CustomerController : ControllerBase
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     [Produces("application/json")]
-    public async Task<IActionResult> GetCustomerByCode(string code)
+    public async Task<IActionResult> GetCustomerByCode(Guid code)
     {
         var customer = await _customerService.GetCustomerByCodeAsync(code);
         if (customer == null)
@@ -64,7 +64,7 @@ public class CustomerController : ControllerBase
     [ProducesResponseType(500)]
     [Produces("application/json")]
     [Consumes("application/json")]
-    public async Task<IActionResult> UpdateCustomer(string code, [FromBody] CustomerRequest customerRequest)
+    public async Task<IActionResult> UpdateCustomer(Guid code, [FromBody] CustomerRequest customerRequest)
     {
         if (customerRequest == null)
         {
@@ -84,7 +84,7 @@ public class CustomerController : ControllerBase
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     [Produces("application/json")]
-    public async Task<IActionResult> DeleteCustomer(string code )
+    public async Task<IActionResult> DeleteCustomer(Guid code )
     {
         var existingCustomer = await _customerService.GetCustomerByCodeAsync(code);
         if (existingCustomer == null)

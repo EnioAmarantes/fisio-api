@@ -5,9 +5,9 @@ namespace Infra.Repositories
     public interface ICustomerRepository
     {
         Task<List<Customer>> GetAllAsync();
-        Task<Customer?> GetByCodeAsync(string code);
+        Task<Customer?> GetByCodeAsync(Guid code);
         Task AddAsync(Customer customer);
         Task UpdateAsync(Customer customer);
-        Task DeleteAsync(string code);
+        Task DeleteAsync(Guid code);
     }
 }
