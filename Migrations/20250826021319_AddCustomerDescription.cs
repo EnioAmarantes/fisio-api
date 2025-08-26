@@ -5,13 +5,13 @@
 namespace fisio_api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCPF : Migration
+    public partial class AddCustomerDescription : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "ContactInfo_CPF",
+                name: "Description",
                 table: "Customers",
                 type: "longtext",
                 nullable: false)
@@ -22,7 +22,7 @@ namespace fisio_api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "ContactInfo_CPF",
+                name: "Description",
                 table: "Customers");
         }
     }

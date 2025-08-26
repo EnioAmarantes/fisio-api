@@ -17,12 +17,18 @@ namespace Infra.Repositories
 
         public async Task<List<Customer>> GetAllAsync()
         {
-            return await _context.Customers.ToListAsync();
+            return await _context.Customers
+                .Include(c => c.ContactInfo)
+                .Include(c => c.Address)
+                .ToListAsync();
         }
 
-        public async Task<Customer?> GetByCodeAsync(string code)
+        public async Task<Customer?> GetByCodeAsync(Guid code)
         {
-            return await _context.Customers.FirstOrDefaultAsync(c => c.Code == code);
+            return await _context.Customers
+                .Include(c => c.ContactInfo)
+                .Include(c => c.Address)
+                .FirstOrDefaultAsync(c => c.Code == code);
         }
 
         public async Task AddAsync(Customer customer)
@@ -38,7 +44,7 @@ namespace Infra.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(string code)
+        public async Task DeleteAsync(Guid code)
         {
             var customer = await _context.Customers.FindAsync(code);
             if (customer != null)

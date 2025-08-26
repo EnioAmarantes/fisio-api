@@ -17,7 +17,7 @@ public class CustomerService : ICustomerService
         _mapper = mapper;
     }
 
-    public async Task<CustomerView?> GetCustomerByCodeAsync(string code)
+    public async Task<CustomerView?> GetCustomerByCodeAsync(Guid code)
     {
         var customer = await _customerRepository.GetByCodeAsync(code);
         if (customer == null) return null;
@@ -37,7 +37,7 @@ public class CustomerService : ICustomerService
         return _mapper.Map<CustomerView>(customer);
     }
 
-    public async Task UpdateCustomerAsync(string code, CustomerRequest customerRequest)
+    public async Task UpdateCustomerAsync(Guid code, CustomerRequest customerRequest)
     {
         var customer = await _customerRepository.GetByCodeAsync(code);
         if (customer != null)
@@ -47,7 +47,7 @@ public class CustomerService : ICustomerService
         }
     }
 
-    public async Task DeleteCustomerAsync(string code)
+    public async Task DeleteCustomerAsync(Guid code)
     {
         await _customerRepository.DeleteAsync(code);
     }

@@ -11,12 +11,12 @@ services:
     ports:
       - "${MYSQL_PORT}:3306"
     volumes:
-      - ${MYSQL_VOLUME}:/var/lib/mysql
+      - mariadb_data_dev:/var/lib/mysql
     networks:
       - fisio_network
 
 volumes:
-  ${MYSQL_VOLUME}:
+  mariadb_data_dev:
 
 networks:
   fisio_network:
